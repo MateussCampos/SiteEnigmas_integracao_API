@@ -1,0 +1,15 @@
+<h1>Enigmas</h1>
+
+{{#each enigmas}}
+  <div style="margin-bottom: 20px;">
+    <p><strong>Desafio:</strong> {{enigma}}</p>
+    <button onclick="this.nextElementSibling.classList.toggle('hidden')">Ver resposta</button>
+    <p class="hidden"><strong>Resposta:</strong> {{resposta}}</p>
+  </div>
+{{/each}}
+
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
