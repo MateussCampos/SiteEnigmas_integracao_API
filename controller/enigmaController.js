@@ -71,3 +71,7 @@ exports.mostrarEngimaDificil = async function (req, res) {
   res.render('enigmas', contexto);
 
 }
+
+exports.parabens = async function (req, res) {
+  res.render('parabens')
+}
