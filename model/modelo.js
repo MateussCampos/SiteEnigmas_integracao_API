@@ -1,15 +1,21 @@
 class Enigma {
-  constructor(dificuldade, enigma, resposta) {
+  constructor(id, dificuldade, enigma, resposta) {
     this._dificuldade = dificuldade;
     this._enigma = enigma;
     this._resposta = resposta;
+    this._id = id;
   }
 
   // Getters
   get dificuldade() {
     return this._dificuldade;
   }
-
+  get id() {
+    return this._id;
+  }
+  set id(id) {
+    this.id = id;
+  }
   get enigma() {
     return this._enigma;
   }
