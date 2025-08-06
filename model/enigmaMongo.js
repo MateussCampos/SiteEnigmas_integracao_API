@@ -11,7 +11,7 @@ const conectar = async () => {
   return cliente.db('enigma');
 };
 
-class NotaMongo {
+class EnigmaMongo {
   async close() {
     if (cliente) {
       cliente.close();
@@ -88,4 +88,4 @@ class NotaMongo {
 
 }
 
-module.exports = new NotaMongo(); // Exporta a instância da classe, não a classe nem o conectar
+module.exports = new EnigmaMongo(); // Exporta a instância da classe, não a classe nem o conectar
