@@ -10,7 +10,7 @@ exports.mostrarTudo = async function (req, res) {
   }
 };
 
-exports.mostrarEngimaFacil = async function (req, res) {
+exports.mostrarEnigmaFacil = async function (req, res) {
 
   const indice = parseInt(req.params.indice); 
   const enigma = await enigmaMongo.obterEnigmaFacilPorIndice(indice);
