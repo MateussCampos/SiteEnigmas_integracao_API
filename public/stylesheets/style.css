@@ -125,12 +125,12 @@ body {
 
 .answer-btn:hover {
   background-color: #ff8a65;
-  transform: translateY(-3px);
+
   box-shadow: 0 7px 0 #e67e7d;
 }
 
 .answer-btn:active {
-  transform: translateY(2px);
+
   box-shadow: 0 2px 0 #e67e7d;
 }
 
@@ -143,18 +143,10 @@ body {
   color: #333;
   margin-top: 20px;
   display: none;
-  animation: fadeIn 0.5s;
+
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
 
-  to {
-    opacity: 1;
-  }
-}
 
 .emoji {
   font-size: 1.5rem;
@@ -218,12 +210,12 @@ body {
 
 .next-level-btn:hover {
   background-color: #65ff8a;
-  transform: translateY(-3px);
+
   box-shadow: 0 7px 0 #7de67d;
 }
 
 .next-level-btn:active {
-  transform: translateY(2px);
+
   box-shadow: 0 2px 0 #7de67d;
 }
 
@@ -251,22 +243,10 @@ pagina parabens =========================================
   font-weight: bold;
   text-shadow: 3px 3px 0px #ffe6f2;
   font-size: 2.5rem;
-  animation: pulse 1.5s infinite;
+ 
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
 
-  50% {
-    transform: scale(1.05);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
 
 .congrats-message {
   background-color: #fffacd;
@@ -283,18 +263,10 @@ pagina parabens =========================================
   font-size: 5rem;
   margin-bottom: 20px;
   display: block;
-  animation: spin 3s linear infinite;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotateY(0deg);
-  }
 
-  100% {
-    transform: rotateY(360deg);
-  }
-}
+
 
 .btn-celebrate {
   background: linear-gradient(45deg, #ff69b4, #ff8c00);
@@ -320,23 +292,9 @@ pagina parabens =========================================
   box-shadow: 0 3px 0 #d4508f;
 }
 
-.floating {
-  animation: floating 3s ease-in-out infinite;
-}
 
-@keyframes floating {
-  0% {
-    transform: translateY(0px);
-  }
 
-  50% {
-    transform: translateY(-15px);
-  }
 
-  100% {
-    transform: translateY(0px);
-  }
-}
 
 .emoji {
   font-size: 1.8rem;
@@ -358,50 +316,18 @@ pagina parabens =========================================
   position: absolute;
   background-color: #fff;
   border-radius: 50%;
-  animation: twinkle var(--duration) ease-in-out infinite;
   opacity: 0;
 }
 
-@keyframes twinkle {
 
-  0%,
-  100% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 
 .balloon {
   position: absolute;
   width: 100px;
   height: 120px;
   border-radius: 50%;
-  animation: floatUp var(--duration) linear infinite;
   z-index: -1;
 }
 
-.balloon:before {
-  content: "";
-  position: absolute;
-  width: 5px;
-  height: 50px;
-  background-color: rgba(0, 0, 0, 0.2);
-  bottom: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-}
 
-@keyframes floatUp {
-  0% {
-    transform: translateY(100vh) translateX(var(--x));
-  }
 
-  100% {
-    transform: translateY(-100px) translateX(var(--x));
-  }
-}

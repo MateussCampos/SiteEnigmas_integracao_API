@@ -1,4 +1,4 @@
-const mongodb = require('mongodb');
+/*const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 
 // Array de enigmas (você pode importar de um arquivo externo se preferir)
@@ -336,3 +336,4 @@ async function popularBanco() {
 }
 
 popularBanco();
+*/
