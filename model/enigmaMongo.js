@@ -60,7 +60,7 @@ class EnigmaMongo {
         "enigma":
           "Um homem está no décimo andar e pula pela janela. Ele sobrevive. Como?",
        "resposta": "Ele pulou de paraquedas ou havia uma rede embaixo.",
-        nivel: "difícil",
+        "nivel": "difícil",
       },
       {
         "dataInsercao": "2025-08-03T17:13:16.417853Z",
