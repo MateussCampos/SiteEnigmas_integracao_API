@@ -1,66 +1,41 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">Decifra-me</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/registrar">Registrar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/enigma/facil/0">Enigmas</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav><div class="container mt-4">
+<header class="site-header">
+  <h1>Decifra-me</h1>
+  <p>Desvende enigmas, explore o desconhecido</p>
+</header>
+
+<nav class="enigma-navbar">
+  <ul class="nav-list">
+    <li><a href="/"><i class="fas fa-house"></i> Início</a></li>
+    <li><a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+    <li><a href="/registrar"><i class="fas fa-user-plus"></i> Registrar</a></li>
+    <li><a href="/enigma/facil/0"><i class="fas fa-puzzle-piece"></i> Enigmas</a></li>
+    <li><a href="/contato"><i class="fas fa-envelope"></i> Contato</a></li>
+  </ul>
+</nav>
+
+<div class="container mt-5">
   <div class="row justify-content-center">
-    <div class="col-md-8 position-relative">
-      <!-- Elementos decorativos -->
-      <div class="stars-container" id="stars-container"></div>
-      <div id="balloons-container"></div>
+    <div class="col-md-8 text-center bg-dark text-white p-5 rounded shadow">
+      <h1 class="display-4 mb-4">
+        <span class="me-2">🎉</span>PARABÉNS!<span class="ms-2">🎊</span>
+      </h1>
 
-      <div class="congrats-container floating">
-        <span class="trophy-icon">🏆</span>
-        <h1 class="congrats-title">
-          <span class="emoji">🎉</span>
-          PARABÉNS!
-          <span class="emoji">🎊</span>
-        </h1>
+      <p class="lead mb-4">
+        Você é incrível! <span>👑</span><br />
+        Conseguiu completar <strong>TODOS</strong> os níveis do jogo!<br />
+        Um verdadeiro mestre dos enigmas! <span>🧠</span>
+      </p>
 
-        <div class="congrats-message">
-          Você é incrível!
-          <span class="emoji">👑</span><br />
-          Conseguiu completar
-          <strong>TODOS</strong>
-          os níveis do jogo!<br />
-          Um verdadeiro mestre dos enigmas!
-          <span class="emoji">🧠</span>
-        </div>
-
-        <button class="btn-celebrate">
-          <span class="emoji">🥳</span>
-          COMEMORAR
-          <span class="emoji">🎂</span>
+      <div class="d-grid gap-3 col-6 mx-auto">
+        <button class="btn btn-success btn-lg" disabled>
+          <span>🥳</span> COMEMORAR <span>🎂</span>
         </button>
 
         <form action="/" method="GET">
-          <button
-            type="submit"
-            class="btn-celebrate"
-            style="background: linear-gradient(45deg, #9370db, #00bfff); box-shadow: 0 5px 0 #7b5cb8;"
-          >
-            <span class="emoji">🔄</span>
-            JOGAR NOVAMENTE
+          <button type="submit" class="btn btn-primary btn-lg">
+            <span>🔄</span> JOGAR NOVAMENTE
           </button>
         </form>
-
-        <div style="margin-top: 30px; font-size: 1.1rem;">
-          Compartilhe sua conquista!
-          <span class="emoji">📢</span>
-        </div>
       </div>
     </div>
   </div>
