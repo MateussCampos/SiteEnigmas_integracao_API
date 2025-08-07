@@ -12,7 +12,7 @@ document.getElementById('verResposta').addEventListener('click', function () {
 });
 
 
-
+/*
 // Criar estrelas cintilantes
 function createStars() {
     const container = document.getElementById('stars-container');
@@ -30,8 +30,8 @@ function createStars() {
         star.style.animationDelay = Math.random() * 5 + 's';
         container.appendChild(star);
     }
-}
-
+}*/
+/*
 // Criar balões
 function createBalloons() {
     const container = document.getElementById('balloons-container');
@@ -61,3 +61,4 @@ window.onload = function () {
         alert('🎉 Uhuuuu! Vamos comemorar essa conquista incrível! 🎊');
     });
 };
+*/
