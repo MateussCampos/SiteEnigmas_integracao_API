@@ -1,333 +1,90 @@
 body {
+  background-color: #6c757d;
 
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 
-a {
-  color: #00B7FF;
-}
+/* css da parte de comentário do usuario que eu fiz  */
 
-/*
-  Style login
-body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .login-container {
-      background: #fff;
-      padding: 2.5rem 3rem;
-      border-radius: 1rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      max-width: 400px;
-      width: 100%;
-      text-align: center;
-    }
-    .login-title {
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: #333;
-    }
-    .btn-google {
-      background-color: #4285F4;
-      color: white;
-      width: 100%;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      border-radius: 0.5rem;
-      padding: 0.5rem 0;
-      transition: background-color 0.3s ease;
-      border: none;
-    }
-    .btn-google:hover {
-      background-color: #357ae8;
-      color: white;
-    }
-    .btn-google svg {
-      height: 20px;
-      width: 20px;
-    }
-    .divider {
-      margin: 1.5rem 0;
-      position: relative;
-      text-align: center;
-    }
-    .divider::before, .divider::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      width: 40%;
-      height: 1px;
-      background: #ddd;
-    }
-    .divider::before {
-      left: 0;
-    }
-    .divider::after {
-      right: 0;
-    }
-    .divider span {
-      display: inline-block;
-      background: white;
-      padding: 0 1rem;
-      color: #666;
-      font-weight: 500;
-      font-size: 0.9rem;
-    }*/
-
-.enigma-container {
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  margin-top: 50px;
-  border: 3px dashed #ff9e7d;
-  max-width: 600px;
-}
-
-.enigma-title {
-  color: #ff6b6b;
-  text-align: center;
-  margin-bottom: 30px;
-  font-weight: bold;
-  text-shadow: 2px 2px 0px #ffecec;
-}
-
-.enigma-question {
-  background-color: #e3f6ff;
-  padding: 20px;
+.depoimentos-section {
+  background-color: #f8f9fa;
   border-radius: 15px;
-  border-left: 5px solid #4dabf7;
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 30px;
+  padding: 2rem;
 }
 
-.answer-btn {
-  background-color: #ff9e7d;
-  border: none;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 50px;
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: all 0.3s;
-  box-shadow: 0 4px 0 #e67e7d;
-  display: block;
-  margin: 0 auto;
+.depoimento-card {
+  border: 2px solid #dee2e6;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-.answer-btn:hover {
-  background-color: #ff8a65;
-
-  box-shadow: 0 7px 0 #e67e7d;
+.depoimento-card:hover {
+  transform: scale(1.02);
 }
 
-.answer-btn:active {
-
-  box-shadow: 0 2px 0 #e67e7d;
-}
-
-.enigma-answer {
-  background-color: #f0fff4;
-  padding: 20px;
-  border-radius: 15px;
-  border-left: 5px solid #51cf66;
-  font-size: 1.2rem;
-  color: #333;
-  margin-top: 20px;
-  display: none;
-
-}
-
-
-
-.emoji {
-  font-size: 1.5rem;
-  margin-right: 10px;
-}
-
-.decoration {
-  position: absolute;
-  font-size: 3rem;
-  opacity: 0.1;
-  z-index: -1;
-}
-
-.decoration-1 {
-  top: 10%;
-  left: 10%;
-}
-
-.decoration-2 {
-  top: 60%;
-  right: 10%;
-}
-
-.decoration-3 {
-  bottom: 10%;
-  left: 20%;
-}
-
-.congrats-title {
-  color: #6bff6b;
-  text-align: center;
-  margin-bottom: 30px;
-  font-weight: bold;
-  text-shadow: 2px 2px 0px #ecffecec;
-  font-size: 2rem;
-}
-
-.congrats-message {
-  background-color: #e3fff6;
-  padding: 20px;
-  border-radius: 15px;
-  border-left: 5px solid #4df7ab;
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 30px;
-}
-
-.next-level-btn {
-  background-color: #7dff9e;
-  border: none;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 50px;
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: all 0.3s;
-  box-shadow: 0 4px 0 #7de67d;
-  display: block;
-  margin: 20px auto;
-}
-
-.next-level-btn:hover {
-  background-color: #65ff8a;
-
-  box-shadow: 0 7px 0 #7de67d;
-}
-
-.next-level-btn:active {
-
-  box-shadow: 0 2px 0 #7de67d;
-}
-
-/* 
-pagina parabens =========================================
- */
-
-.congrats-container {
-  background-color: #fff;
-  border-radius: 30px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  padding: 40px;
-  margin-top: 50px;
-  border: 5px dotted #ff69b4;
-  max-width: 700px;
-  text-align: center;
-  position: relative;
-  z-index: 10;
-}
-
-.congrats-title {
-  color: #ff69b4;
-  text-align: center;
-  margin-bottom: 30px;
-  font-weight: bold;
-  text-shadow: 3px 3px 0px #ffe6f2;
-  font-size: 2.5rem;
- 
-}
-
-
-
-.congrats-message {
-  background-color: #fffacd;
-  padding: 25px;
-  border-radius: 20px;
-  border: 3px solid #ffd700;
-  font-size: 1.3rem;
-  color: #333;
-  margin-bottom: 30px;
-  line-height: 1.6;
-}
-
-.trophy-icon {
-  font-size: 5rem;
-  margin-bottom: 20px;
-  display: block;
-}
-
-
-
-
-.btn-celebrate {
-  background: linear-gradient(45deg, #ff69b4, #ff8c00);
-  border: none;
-  color: white;
-  padding: 15px 30px;
-  border-radius: 50px;
-  font-weight: bold;
-  font-size: 1.3rem;
-  transition: all 0.3s;
-  box-shadow: 0 5px 0 #d4508f;
-  margin: 15px auto;
-  display: inline-block;
-}
-
-.btn-celebrate:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 0 #d4508f;
-}
-
-.btn-celebrate:active {
-  transform: translateY(2px);
-  box-shadow: 0 3px 0 #d4508f;
-}
-
-
-
-
-
-.emoji {
-  font-size: 1.8rem;
-  margin: 0 5px;
-  display: inline-block;
-}
-
-.stars-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.star {
-  position: absolute;
-  background-color: #fff;
-  border-radius: 50%;
-  opacity: 0;
-}
-
-
-
-.balloon {
-  position: absolute;
+.depoimento-img {
   width: 100px;
-  height: 120px;
+  height: 100px;
+  object-fit: cover;
+  margin-top: 1rem;
   border-radius: 50%;
-  z-index: -1;
+  border: 2px solid #6c757d;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 
+/* Parte do nav  */
 
+.site-header {
+  background-color: #000000;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.site-header h1 {
+  color: #FF0000;
+  letter-spacing: 4px;
+  font-size: 2.2rem;
+  margin: 0;
+}
+
+.site-header p {
+  color: #CCCCCC;
+  font-size: 0.95rem;
+  margin-top: 8px;
+}
+
+/* Parte do nav que fiz  */
+.enigma-navbar {
+  background-color: #3D0000;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-list li {
+  flex: 1;
+  text-align: center;
+}
+
+.nav-list a {
+  display: block;
+  padding: 12px 18px;
+  color: #FF0000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.nav-list a:hover {
+  background-color: #950101;
+  color: #FFFFFF;
+}
