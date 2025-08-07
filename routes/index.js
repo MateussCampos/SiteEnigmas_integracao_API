@@ -6,11 +6,11 @@ var autenticacaoController = require('../controller/autenticacaoController.js')
 router.get('/', autenticacaoController.mainPage);
 
 router.get('/login', function(req, res, next) {
-  res.render('login', { layout: false });
+  res.render('login');
 });
 
 router.get('/registrar', function(req, res, next) {
-  res.render('registrar', { layout: false });
+  res.render('registrar');
 });
 
 router.get('/contato', autenticacaoController.contato)

@@ -1,86 +1,114 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">Decifra-me</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/registrar">Registrar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/enigma/facil/0">Enigmas</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav><!-- Formulário de Contato -->
+<header class="site-header">
+  <h1>Decifra-me</h1>
+  <p>Desvende enigmas, explore o desconhecido</p>
+</header>
+
+<nav class="enigma-navbar">
+  <ul class="nav-list">
+    <li><a href="/"><i class="fas fa-house"></i> Início</a></li>
+    <li><a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+    <li><a href="/registrar"><i class="fas fa-user-plus"></i> Registrar</a></li>
+    <li><a href="/enigma/facil/0"><i class="fas fa-puzzle-piece"></i> Enigmas</a></li>
+    <li><a href="/contato"><i class="fas fa-envelope"></i> Contato</a></li>
+  </ul>
+</nav>
+
+<body class="bg-dark text-light"></body>
+
 <div class="container py-5">
   <div class="row">
     <div class="col-lg-8 mx-auto">
-      <div class="contact-section">
-        <div class="text-center mb-5">
-          <h2>Decifra-me</h2>
-          <p class="lead">Envie sua mensagem, dúvida ou sugestão de enigma</p>
+      <div class="text-center mb-5">
+        <h2 class="display-5">Fale com o Guardião dos Enigmas</h2>
+        <p class="lead">Envie sua dúvida, desafio ou sugestão enigmática</p>
+      </div>
+
+      <!-- Formulário -->
+      <form id="contactForm">
+        <div class="mb-3">
+          <label for="name" class="form-label">Seu Nome</label>
+          <input type="text" class="form-control bg-dark text-light border-secondary" id="name" required />
         </div>
 
-        <form id="contactForm">
-          <div class="mb-3">
-            <label for="name" class="form-label">Seu Nome</label>
-            <input type="text" class="form-control" id="name" required />
-          </div>
-
-          <div class="mb-3">
-            <label for="email" class="form-label">E-mail</label>
-            <input type="email" class="form-control" id="email" required />
-          </div>
-
-          <div class="mb-3">
-            <label for="subject" class="form-label">Assunto</label>
-            <select class="form-select" id="subject" required>
-              <option value="" selected disabled>Selecione...</option>
-              <option value="duvida">Dúvida sobre enigmas</option>
-              <option value="sugestao">Sugestão de novo enigma</option>
-              <option value="problema">Problema técnico</option>
-              <option value="parceria">Proposta de parceria</option>
-              <option value="outro">Outro assunto</option>
-            </select>
-          </div>
-
-          <div class="mb-3">
-            <label for="message" class="form-label">Mensagem</label>
-            <textarea
-              class="form-control"
-              id="message"
-              rows="5"
-              required
-            ></textarea>
-          </div>
-
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="newsletter" />
-            <label class="form-check-label" for="newsletter">Desejo receber
-              novidades por e-mail</label>
-          </div>
-
-          <div class="d-grid btn btn-light">
-            <button type="submit" class="btn btn-enigma btn-lg">Enviar Mensagem</button>
-          </div>
-        </form>
-
-        <div
-          id="formSuccess"
-          class="alert alert-success mt-4 d-none"
-          role="alert"
-        >
-          Sua mensagem foi enviada com sucesso! Responderemos em até 48 horas.
+        <div class="mb-3">
+          <label for="email" class="form-label">E-mail</label>
+          <input type="email" class="form-control bg-dark text-light border-secondary" id="email" required />
         </div>
 
-        <div id="formError" class="alert alert-danger mt-4 d-none" role="alert">
-          Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.
+        <div class="mb-3">
+          <label for="subject" class="form-label">Assunto</label>
+          <select class="form-select bg-dark text-light border-secondary" id="subject" required>
+            <option value="" selected disabled>Selecione...</option>
+            <option value="duvida">Dúvida sobre enigmas</option>
+            <option value="sugestao">Sugestão de novo enigma</option>
+            <option value="problema">Problema técnico</option>
+            <option value="parceria">Proposta de parceria</option>
+            <option value="outro">Outro assunto</option>
+          </select>
         </div>
+
+        <div class="mb-3">
+          <label for="message" class="form-label">Mensagem</label>
+          <textarea class="form-control bg-dark text-light border-secondary" id="message" rows="5" required></textarea>
+        </div>
+
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="newsletter" />
+          <label class="form-check-label" for="newsletter">Desejo receber enigmas e novidades por e-mail</label>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-outline-light btn-lg">Enviar Mensagem</button>
+        </div>
+      </form>
+
+      <div id="formSuccess" class="alert alert-success mt-4 d-none" role="alert">
+        Sua mensagem foi enviada com sucesso! Decifraremos em até 48 horas.
+      </div>
+
+      <div id="formError" class="alert alert-danger mt-4 d-none" role="alert">
+        Algo misterioso aconteceu... Tente novamente mais tarde.
       </div>
     </div>
   </div>
 </div>
+
+<div class="container mt-5">
+  <h2 class="text-center display-6 mb-4">Santuário dos Contatos</h2>
+
+  <table class="table table-dark table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th colspan="2" class="text-center">Localização e Informações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Endereço:</td>
+        <td>Rua dos Enigmas, 42 - Manhuaçu, MG</td>
+      </tr>
+      <tr>
+        <td>Mapa:</td>
+        <td>
+          <iframe class="w-100" height="250"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1619.9901704154595!2d-42.15043122991569!3d-20.245557154167276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbb1d9a3fa4f8bd%3A0x77cd1811898d822e!2sInstituto%20Federal%20do%20Sudeste%20de%20Minas%20Gerais%20-%20Campus%20Manhua%C3%A7u!5e0!3m2!1spt-BR!2sbr!4v1739107794095!5m2!1spt-BR!2sbr"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </td>
+      </tr>
+      <tr>
+        <td>Horário de Atendimento:</td>
+        <td>Segunda a Sexta, das 9h às 18h</td>
+      </tr>
+      <tr>
+        <td>Estacionamento:</td>
+        <td>Vagas gratuitas para decifradores</td>
+      </tr>
+      <tr>
+        <td>Acessibilidade:</td>
+        <td>Ambiente acessível a todos os aventureiros</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
