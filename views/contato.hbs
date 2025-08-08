@@ -24,20 +24,21 @@
       </div>
 
       <!-- Formulário -->
-      <form id="contactForm">
+      <form id="contactForm" action="/contato" method="POST">
         <div class="mb-3">
           <label for="name" class="form-label">Seu Nome</label>
-          <input type="text" class="form-control bg-dark text-light border-secondary" id="name" required />
+          <input type="text" name="name" class="form-control bg-dark text-light border-secondary" id="name" required />
         </div>
 
         <div class="mb-3">
           <label for="email" class="form-label">E-mail</label>
-          <input type="email" class="form-control bg-dark text-light border-secondary" id="email" required />
+          <input type="email" name="email" class="form-control bg-dark text-light border-secondary" id="email"
+            required />
         </div>
 
         <div class="mb-3">
           <label for="subject" class="form-label">Assunto</label>
-          <select class="form-select bg-dark text-light border-secondary" id="subject" required>
+          <select name="subject" class="form-select bg-dark text-light border-secondary" id="subject" required>
             <option value="" selected disabled>Selecione...</option>
             <option value="duvida">Dúvida sobre enigmas</option>
             <option value="sugestao">Sugestão de novo enigma</option>
@@ -49,11 +50,12 @@
 
         <div class="mb-3">
           <label for="message" class="form-label">Mensagem</label>
-          <textarea class="form-control bg-dark text-light border-secondary" id="message" rows="5" required></textarea>
+          <textarea name="message" class="form-control bg-dark text-light border-secondary" id="message" rows="5"
+            required></textarea>
         </div>
 
         <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="newsletter" />
+          <input type="checkbox" name="newsletter" class="form-check-input" id="newsletter" />
           <label class="form-check-label" for="newsletter">Desejo receber enigmas e novidades por e-mail</label>
         </div>
 
@@ -61,6 +63,7 @@
           <button type="submit" class="btn btn-outline-light btn-lg">Enviar Mensagem</button>
         </div>
       </form>
+
 
       <div id="formSuccess" class="alert alert-success mt-4 d-none" role="alert">
         Sua mensagem foi enviada com sucesso! Decifraremos em até 48 horas.
