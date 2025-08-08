@@ -7,7 +7,8 @@ const bodyParser = require("body-parser");
 
 var indexRouter = require("./routes/index");
 var rotasEnigma = require("./routes/rotasEnigma");
-var rotasAPI = require("./routes/rotasAPI")
+var rotasAPI = require("./routes/rotasAPI");
+var rotasContato = require("./routes/rotasContato")
 
 var app = express();
 
@@ -27,6 +28,8 @@ app.use(bodyParser.json());
 app.use("/", indexRouter);
 app.use("/enigma", rotasEnigma);
 app.use("/api",rotasAPI)
+app.use("/", rotasContato);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
