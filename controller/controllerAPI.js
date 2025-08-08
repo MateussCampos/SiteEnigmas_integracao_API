@@ -5,8 +5,8 @@ exports.apiView = async function (req,res) {
 }
 exports.getEnigmaFacil = async function (req, res) {
   var id = parseInt(req.body.id);
-  if (id > 30) {
-    while (id > 30) {
+  if (id > 43) {
+    while (id > 43) {
       id = parseInt(Math.random() * 100);
     }
     var r = await enigmas.obterEnigmaFacilPorIndice(id);
@@ -26,8 +26,8 @@ exports.getEnigmaFacil = async function (req, res) {
 };
 exports.getEnigmaMedio = async function (req, res) {
   var id = parseInt(req.body.id);
-  if (id > 6) {
-    while (id > 6) {
+  if (id > 12) {
+    while (id > 12) {
       id = parseInt(Math.random() * 100);
     }
     var r = await enigmas.obterEnigmaFacilPorIndice(id);
@@ -47,8 +47,8 @@ exports.getEnigmaMedio = async function (req, res) {
 };
 exports.getEnigmaDificil = async function (req, res) {
   var id = parseInt(req.body.id);
-if (id > 10) {
-    while (id > 10) {
+if (id > 25) {
+    while (id > 25) {
       id = parseInt(Math.random() * 100);
     }
     var r = await enigmas.obterEnigmaFacilPorIndice(id);
