@@ -7,14 +7,14 @@ async function enviarContato(req, res) {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'gabrieltristao2006@gmail.com',
-                pass: 'yfsqqarjnolrblmg'
+                user: 'emailADM@gmail.com',
+                pass: 'senha'
             }
         });
 
         const mailOptionsParaMim = {
             from: `"${name}" <${email}>`,
-            to: 'gabrieltristao2006@gmail.com',
+            to: 'emailADM@gmail.com',
             subject: `Contato: ${subject}`,
             html: `
                 <h3>Nova mensagem do formulário de contato</h3>
@@ -30,7 +30,7 @@ async function enviarContato(req, res) {
         await transporter.sendMail(mailOptionsParaMim);
 
         const mailOptionsParaUsuario = {
-            from: '"Guardião dos Enigmas" <gabrieltristao2006@gmail.com>',
+            from: '"Guardião dos Enigmas" <emailADM@gmail.com>',
             to: email,
             subject: 'Recebemos sua mensagem',
             html: `
