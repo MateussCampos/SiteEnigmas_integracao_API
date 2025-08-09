@@ -16,4 +16,6 @@ router.get('/registrar', function(req, res, next) {
   res.render('registrar');
 });
 
+router.post('/deletar/conta', authController.deletarConta)
+
 module.exports = router; 

@@ -39,7 +39,7 @@ exports.googleCallback = async (req, res) => {
   const code = req.query.code;
   const redirect_uri = "http://localhost:3000/auth/google/callback";
 
- /* try {*/
+
     const tokenRes = await axios.post("https://oauth2.googleapis.com/token", {
       code,
       client_id: process.env.GOOGLE_CLIENT_ID,
@@ -63,9 +63,14 @@ exports.googleCallback = async (req, res) => {
       id: user._id,
       name: user.name,
       email: user.email,
-      picture: user.picture
+      picture: user.picture,
+      id_google: user.googleId,
+      localizacao: user.locale,
+      email_verificado: user.email_verified,
+      ultimo_login: user.updatedAt
     };
 
+    console.log(user)
     req.session.save(err => {
       if (err) {
         console.error("Erro ao salvar sessão:", err);
@@ -73,10 +78,6 @@ exports.googleCallback = async (req, res) => {
       res.redirect("/profile");
     });
 
-  /*} catch (err) {
-    console.error(err.response ?.data || err.message);
-    res.redirect("/");
-  }*/
 };
 
 
@@ -84,4 +85,18 @@ exports.logout = (req, res) => {
   req.session.destroy(() => {
     res.redirect("/");
   });
+};
+
+
+exports.deletarConta =  async (req, res) => {
+  
+  const usario_deletado = await userModel.deletarUsuarioPeloId(req.body.id);
+
+  if(usario_deletado)
+      res.render('index', { alerta: "Usuário deletado com sucesso!" });
+  else
+    res.render('/profile', { alerta: "Não foi possível deletar" });
+
+
+
 };

@@ -1,5 +1,6 @@
 const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
+const ObjectId = mongodb.ObjectId; 
 let cliente;
 
 const conectar = async () => {
@@ -27,6 +28,8 @@ const upsertUser = async (userData) => {
             email: userData.email,
             name: userData.name,
             picture: userData.picture,
+            locale: userData.locale,
+            email_verified: userData.email_verified,
             updatedAt: new Date()
         },
         $setOnInsert: {
@@ -44,8 +47,25 @@ const upsertUser = async (userData) => {
 
 };
 
+const deletarUsuarioPeloId = async (id) => {
+    const db = await conectar();
+    const users = db.collection("users");
+
+    // Converte para ObjectId (se possível)
+    let objectId;
+    try {
+        objectId = new ObjectId(id);
+    } catch (error) {
+        throw new Error("ID inválido");
+    }
+
+    const result = await users.deleteOne({ _id: objectId });
+    return result.deletedCount > 0;
+};
+
 module.exports = {
     conectar,
     bd,
-    upsertUser
+    upsertUser,
+    deletarUsuarioPeloId
 };
