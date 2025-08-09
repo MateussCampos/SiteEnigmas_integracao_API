@@ -24,25 +24,54 @@ exports.mostrarPerfil = async function (req, res) {
 }
 
 exports.alterarNickname = async (req, res) => {
+  const { id, nickname } = req.body;
 
-  var id = req.body.id;
-  var nickname = req.body.nickname;
+  // Atualiza o nickname no banco
+  const usuarioAtualizado = await userModel.atualizarNicknamePeloId(id, nickname);
 
-
-
-    // Atualiza apenas o nickname no banco
-    const usuarioAtualizado = await userModel.atualizarNicknamePeloId(id, nickname);
-
-    if (usuarioAtualizado) {
-      if (req.session && req.session.user) {
-        req.session.user.nickname = nickname;
-      }
-
-      res.render('profile', { alerta: "Nickname alterado com sucesso!" });
-    } else {
-      res.render('profile', { alerta: "Não foi possível alterar o nicknames." });
+  if (usuarioAtualizado) {
+    // Atualiza o nickname na sessão
+    if (req.session && req.session.user) {
+      req.session.user.nickname = nickname;
     }
-  
+
+    // Recarrega a página com TODOS os dados do usuário + mensagem de sucesso
+    const contexto = {
+      title: "Perfil",
+      id: req.session.user.id,
+      nome: req.session.user.name,
+      email: req.session.user.email,
+      foto: req.session.user.picture,
+      id_google: req.session.user.id_google,
+      email_verificado: req.session.user.email_verified ? "Sim" : "Não",
+      localizacao: req.session.user.locale,
+      ultimo_login: req.session.user.ultimo_login 
+        ? diferencaEmMinutos(req.session.user.ultimo_login) 
+        : "Data não disponível",
+      nickname: nickname, // Novo nickname
+      alerta: "Nickname alterado com sucesso!" // Mensagem de sucesso
+    };
+
+    res.render('profile', contexto); // Renderiza com todos os dados
+  } else {
+    // Se der erro, mantém os dados atuais e mostra mensagem de erro
+    const contexto = {
+      title: "Perfil",
+      id: req.session.user.id,
+      nome: req.session.user.name,
+      email: req.session.user.email,
+      foto: req.session.user.picture,
+      id_google: req.session.user.id_google,
+      email_verificado: req.session.user.email_verified ? "Sim" : "Não",
+      localizacao: req.session.user.locale,
+      ultimo_login: req.session.user.ultimo_login 
+        ? diferencaEmMinutos(req.session.user.ultimo_login) 
+        : "Data não disponível",
+      nickname: req.session.user.nickname, // Mantém o nickname antigo
+      alerta: "Não foi possível alterar o nickname." // Mensagem de erro
+    };
+    res.render('profile', contexto);
+  }
 };
 
 exports.deletarConta =  async (req, res) => {

@@ -1,129 +1,88 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!-- Cabeçalho do Perfil -->
+<div class="bg-primary bg-gradient text-white text-center py-4">
+    <img src="{{ foto }}" alt="Foto do perfil" class="rounded-circle border border-3 border-white mb-3"
+        style="width: 120px; height: 120px; object-fit: cover;">
+    <h3>{{ nome }}</h3>
+    <p class="lead">{{ email }}</p>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Perfil Google</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Ícones do Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <style>
-        .profile-header {
-            background: linear-gradient(135deg, #4285F4, #34A853);
-            color: white;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-        }
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
 
-        .profile-pic {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border: 3px solid white;
-        }
-
-        .info-card {
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-
-</head>
-
-<body>
-    <!-- Cabeçalho do Perfil -->
-    <div class="profile-header">
-        <div class="container text-center">
-            <img id="profile-picture" src="{{ foto }}" alt="Foto do perfil" class="profile-pic rounded-circle mb-3">
-            <h3 id="user-name">{{nome}}</h3>
-            <p id="user-email" class="lead">{{email}}</p>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-
-
-                <div class="card info-card mb-5">
-                    <div class="card-header bg-white">
-                        <h5 class="mb-0"><i class="bi bi-person-circle"></i>NickName</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <form method="post" action="/alterar/nickname">
-                                <div class="form-group d-flex space-around">
-                                    <input type="text" name="id" hidden value="{{ id }}">
-                                    <input type="text" class="form-control" id="nickname" name="nickname" value="{{ nickname }}"
-                                        placeholder="Defina um nickname" required>
-
-                                    <button class="btn btn-success" type="submit">Salvar</button>
-                                </div>
-                            </form>
+            <!-- Card Nickname -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white fw-bold">
+                    <i class="bi bi-person-circle me-2"></i>NickName
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/alterar/nickname" class="row g-2 align-items-center">
+                        <input type="hidden" name="id" value="{{ id }}">
+                        <div class="col">
+                            <input type="text" class="form-control" id="nickname" name="nickname" value="{{ nickname }}"
+                                placeholder="Defina um nickname" required>
                         </div>
-                    </div>
-                </div>
-
-
-                <!-- Informações Básicas -->
-                <div class="card info-card mb-4">
-                    <div class="card-header bg-white">
-                        <h5 class="mb-0"><i class="bi bi-person-badge me-2"></i>Informações do Google</h5>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex justify-content-between">
-                                <span>ID do Google:</span>
-                                <span id="user-id" class="text-muted">{{ id_google }}</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between">
-                                <span>Email verificado:</span>
-                                <span id="email-verified" class="text-muted">{{email_verificado}}</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between">
-                                <span>Localização:</span>
-                                <span id="user-locale" class="text-muted">{{localizacao}}</span>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card info-card">
-                    <div class="card-header bg-white">
-                        <h5 class="mb-0"><i class="bi bi-google me-2"></i>Sessão Google</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <div>
-                                <h6 class="mb-0">Conta conectada</h6>
-                                <small class="text-muted" id="session-time">Há {{ultimo_login}} minutos</small>
-                            </div>
-                            <form action="/auth/logout" method="get">
-                                <button class="btn btn-sm btn-outline-danger" type="submit"
-                                    id="logout-btn">Sair</button>
-                            </form>
+                        <div class="col-auto">
+                            <button class="btn btn-success" type="submit">Alterar</button>
                         </div>
-                    </div>
-                </div>
-
-                <div class="mt-5">
-
-                    <form method="post" action="/auth/deletar/conta">
-                        <input type="text" value="{{ id  }}" name="id" hidden>
-                        <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Tem certeza que deseja deletar a conta?');">Deletar conta</button>
                     </form>
                 </div>
             </div>
+
+            <!-- Informações do Google -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white fw-bold">
+                    <i class="bi bi-person-badge me-2"></i>Informações do Google
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>ID do Google:</span>
+                        <span class="text-muted">{{ id_google }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Email verificado:</span>
+                        <span class="text-muted">{{ email_verificado }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Localização:</span>
+                        <span class="text-muted">{{ localizacao }}</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Sessão Google -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white fw-bold">
+                    <i class="bi bi-google me-2"></i>Sessão Google
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="mb-0">Conta conectada</h6>
+                        <small class="text-muted">Há {{ ultimo_login }} minutos</small>
+                    </div>
+                    <form action="/auth/logout" method="get">
+                        <button class="btn btn-outline-danger btn-sm" type="submit">
+                            Sair
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Botão Deletar Conta -->
+            <div class="text-center">
+                <form method="post" action="/auth/deletar/conta">
+                    <input type="hidden" name="id" value="{{ id }}">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash me-1"></i>Deletar conta
+                    </button>
+                </form>
+            </div>
+
+            <a href="/" class="btn btn-secondary">
+                <i class="fas fa-arrow-left me-2"></i> Voltar
+            </a>
+
+
         </div>
     </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
+</div>

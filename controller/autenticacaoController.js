@@ -16,9 +16,8 @@ exports.contato = async (req, res) => {
   res.render('contato');
 };
 
-// ======================
+
 // Autenticação com o google
-// ======================
 
 exports.loginGoogle = (req, res) => {
   const redirect_uri = "http://localhost:3000/auth/google/callback";

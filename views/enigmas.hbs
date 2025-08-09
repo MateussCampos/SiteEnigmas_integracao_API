@@ -5,13 +5,14 @@
 
 <nav class="enigma-navbar">
   <ul class="nav-list">
-    <li><a href="/"><i class="fas fa-house"></i> Início</a></li>
-    <li><a href="/auth/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-    <li><a href="/auth/registrar"><i class="fas fa-user-plus"></i> Registrar</a></li>
-    <li><a href="/enigma/facil/1"><i class="fas fa-puzzle-piece"></i> Enigmas</a></li>
-    <li><a href="/contato"><i class="fas fa-envelope"></i> Contato</a></li>
+    <li><a href="/"><i class="bi bi-house-door"></i> Início</a></li>
+    <li><a href="/auth/login"><i class="bi bi-box-arrow-in-right"></i> Login</a></li>
+    <li><a href="/auth/registrar"><i class="bi bi-person-plus"></i> Registrar</a></li>
+    <li><a href="/enigma/facil/2"><i class="bi bi-question-circle"></i> Enigmas</a></li>
+    <li><a href="/contato"><i class="bi bi-envelope"></i> Contato</a></li>
   </ul>
 </nav>
+
 
 <div class="container py-5">
   <div class="row justify-content-center">
@@ -21,36 +22,36 @@
 
           {{#if mensagem}}
           <h1 class="text-success mb-4">
-            🎯 Desafio Concluído!
+            <i class="fas fa-bullseye"></i> Desafio Concluído!
           </h1>
 
           <p class="lead mb-4">
-            Parabéns! Você completou o desafio com sucesso! 👏<br>
+            Parabéns! Você completou o desafio com sucesso! <i class="fas fa-hands-clapping"></i><br>
             Está pronto para o próximo nível?
           </p>
 
           <form action="{{this.proximo_nivel}}" method="get" class="d-grid gap-2 mb-3">
             <button class="btn btn-primary btn-lg" type="submit">
-              🔥 {{texto_botao_proximo_nivel}}
+              <i class="fas fa-fire"></i> {{texto_botao_proximo_nivel}}
             </button>
           </form>
 
           <form action="{{this.tentar_novamente}}" method="get" class="d-grid gap-2">
             <button class="btn btn-warning btn-lg" type="submit">
-              🔄 Tentar Novamente
+              <i class="fas fa-rotate"></i> Tentar Novamente
             </button>
           </form>
 
           {{else}}
 
           <h1 class="text-primary mb-4">
-            🧩 Desafio Cartoon
+            <i class="fas fa-puzzle-piece"></i> Desafio Cartoon
           </h1>
 
           <p class="fs-4 mb-4">{{this.enigma}}</p>
 
           <button class="btn btn-outline-info mb-4" type="button" data-bs-toggle="collapse" data-bs-target="#resposta">
-            👀 Ver Resposta
+            <i class="fas fa-eye"></i> Ver Resposta
           </button>
 
           <div class="collapse" id="resposta">
@@ -59,7 +60,7 @@
 
               <form action="{{this.proxima_rota}}" method="GET" class="d-grid gap-2 mt-3">
                 <button type="submit" class="btn btn-success">
-                  Próximo
+                  <i class="fas fa-arrow-right"></i> Próximo
                 </button>
               </form>
             </div>

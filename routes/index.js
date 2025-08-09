@@ -8,7 +8,8 @@ router.get('/', autenticacaoController.mainPage);
 
 
 router.get('/contato', autenticacaoController.contato),
-router.get('/profile', userController.mostrarPerfil)
+router.get('/profile', userController.mostrarPerfil),
+router.get('/alterar', userController.alterarNickname)
 
 
 module.exports = router;

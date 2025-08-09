@@ -1,43 +1,16 @@
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
   <div class="card shadow p-4" style="max-width: 450px; width: 100%;">
-    <h2 class="text-center mb-4">Criar Conta</h2>
+    <h1 class="text-center mb-4">Criar Conta</h1>
 
-    <form action="/registrar" method="POST">
-      <div class="mb-3">
-        <label for="nome" class="form-label">Nome completo</label>
-        <input type="text" class="form-control" id="nome" name="nome" required />
-      </div>
+    <div class="d-grid mb-4">
+      <a href="/auth/google" class="btn btn-outline-danger d-flex align-items-center justify-content-center">
+        <img src="/img/google.png" alt="Google Logo" style="width: 20px; height: 20px; margin-right: 8px;">
+        Continuar com Google
+      </a>
+    </div>
 
-      <div class="mb-3">
-        <label for="email" class="form-label">E-mail</label>
-        <input type="email" class="form-control" id="email" name="email" required />
-      </div>
-
-      <div class="mb-3">
-        <label for="senha" class="form-label">Senha</label>
-        <input type="password" class="form-control" id="senha" name="senha" required />
-      </div>
-
-      <div class="d-grid mb-3">
-        <button type="submit" class="btn btn-primary">Registrar</button>
-      </div>
-
-      <div class="position-relative text-center my-3">
-        <hr>
-        <span class="position-absolute top-50 start-50 translate-middle bg-white px-2">OU</span>
-      </div>
-
-      <div class="d-grid mb-3">
-        <a href="/auth/google" class="btn btn-outline-danger d-flex align-items-center justify-content-center">
-          <img src="/img/google.png" alt="Google Logo"
-            style="width: 20px; height: 20px; margin-right: 8px;">
-          Continuar com Google
-        </a>
-      </div>
-
-      <div class="text-center mt-3">
-        <small>Já tem uma conta? <a href="/auth/login">Faça login</a></small>
-      </div>
-    </form>
+    <div class="text-center mt-3">
+      <small>Já tem uma conta? <a href="/auth/login">Faça login</a></small>
+    </div>
   </div>
 </div>
