@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 var session = require('express-session'); // Sessão para controle de usuários
+=======
+>>>>>>> 00f8df8a6bacc7cd2fc4c08f0a62aa18b5469e78
 var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
@@ -26,6 +29,7 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, "public")));
 
+
 app.use(session({
   secret: 'umaChaveSecretaAqui',  // coloque uma chave secreta forte
   resave: false,
@@ -34,6 +38,7 @@ app.use(session({
 }));
 
 app.use(bodyParser.json());
+
 
 app.use("/", indexRouter);
 app.use("/enigma", checarUsuarioAutenteicado, rotasEnigma);
@@ -48,6 +53,10 @@ app.use(function (req, res, next) {
 
 // error handler
 app.use(function (err, req, res, next) {
+<<<<<<< HEAD
+=======
+  // set locals, only providing error in development
+>>>>>>> 00f8df8a6bacc7cd2fc4c08f0a62aa18b5469e78
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 

@@ -6,7 +6,6 @@ var autenticacaoController = require('../controller/autenticacaoController.js')
 router.get('/', autenticacaoController.mainPage);
 
 
-
 router.get('/contato', autenticacaoController.contato)
 
 
