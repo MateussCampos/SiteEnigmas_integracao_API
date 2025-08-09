@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const contatoController = require('../controller/contatoController');
 
-router.post('/contato', contatoController.enviarContato);
+
+router.post('/enviar-email', contatoController.enviarContato);
 
 module.exports = router;
