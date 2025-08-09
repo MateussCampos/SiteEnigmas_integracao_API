@@ -2,4 +2,4 @@
 DecifraMe.code-workspace
 # pasta com pacotes do NodeJs
 node_modules/
-.env/
+.env
