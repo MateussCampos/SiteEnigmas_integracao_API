@@ -1,7 +1,7 @@
 var enigmas = require("../model/enigmaMongo.js");
-exports.apiView = async function (req,res) {
-    res.render('apiview')
-    
+exports.apiView = async function (req, res) {
+  res.render('apiview')
+
 }
 exports.getEnigmaFacil = async function (req, res) {
   var id = parseInt(req.body.id);
@@ -25,19 +25,20 @@ exports.getEnigmaFacil = async function (req, res) {
   }
 };
 exports.getEnigmaMedio = async function (req, res) {
+  
   var id = parseInt(req.body.id);
   if (id > 12) {
     while (id > 12) {
       id = parseInt(Math.random() * 100);
     }
-    var r = await enigmas.obterEnigmaFacilPorIndice(id);
+    var r = await enigmas.obterEnigmaMedioPorIndice(id);
     var json = {
       enigma: r.enigma,
       resposta: r.resposta,
     };
     res.json(json);
   } else {
-    var r = await enigmas.obterEnigmaFacilPorIndice(id);
+    var r = await enigmas.obterEnigmaMedioPorIndice(id);
     var json = {
       enigma: r.enigma,
       resposta: r.resposta,
@@ -47,18 +48,18 @@ exports.getEnigmaMedio = async function (req, res) {
 };
 exports.getEnigmaDificil = async function (req, res) {
   var id = parseInt(req.body.id);
-if (id > 25) {
+  if (id > 25) {
     while (id > 25) {
       id = parseInt(Math.random() * 100);
     }
-    var r = await enigmas.obterEnigmaFacilPorIndice(id);
+    var r = await enigmas.obterEnigmaDificilPorIndice(id);
     var json = {
       enigma: r.enigma,
       resposta: r.resposta,
     };
     res.json(json);
   } else {
-    var r = await enigmas.obterEnigmaFacilPorIndice(id);
+    var r = await enigmas.obterEnigmaDificilPorIndice(id);
     var json = {
       enigma: r.enigma,
       resposta: r.resposta,
