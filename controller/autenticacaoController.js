@@ -1,6 +1,7 @@
 require("dotenv").config();
 const axios = require("axios");
 var enigmas = require('../model/enigmaMongo.js');
+const userModel = require('../model/userMongo.js');
 
 exports.login = (req, res) => {
   res.render("autenticacao/login");
@@ -16,7 +17,7 @@ exports.contato = async (req, res) => {
 };
 
 // ======================
-// Google OAuth
+// Autenticação com o google
 // ======================
 
 exports.loginGoogle = (req, res) => {
@@ -26,17 +27,19 @@ exports.loginGoogle = (req, res) => {
     "profile",
     "email"
   ].join(" ");
-  
+
   const auth_url = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${process.env.GOOGLE_CLIENT_ID}&redirect_uri=${redirect_uri}&scope=${scope}`;
-  
+
   res.redirect(auth_url);
 };
+
+
 
 exports.googleCallback = async (req, res) => {
   const code = req.query.code;
   const redirect_uri = "http://localhost:3000/auth/google/callback";
 
-  try {
+ /* try {*/
     const tokenRes = await axios.post("https://oauth2.googleapis.com/token", {
       code,
       client_id: process.env.GOOGLE_CLIENT_ID,
@@ -51,14 +54,31 @@ exports.googleCallback = async (req, res) => {
       }
     });
 
-    req.session.user = userInfo.data;
-    res.redirect("/profile");
+    // salva ou atualiza usuário no Mongo
+    const user = await userModel.upsertUser(userInfo.data);
+    
 
-  } catch (err) {
-    console.error(err.response?.data || err.message);
+    // salva na sessão os dados do usuário do banco, com _id
+    req.session.user = {
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      picture: user.picture
+    };
+
+    req.session.save(err => {
+      if (err) {
+        console.error("Erro ao salvar sessão:", err);
+      }
+      res.redirect("/profile");
+    });
+
+  /*} catch (err) {
+    console.error(err.response ?.data || err.message);
     res.redirect("/");
-  }
+  }*/
 };
+
 
 exports.logout = (req, res) => {
   req.session.destroy(() => {

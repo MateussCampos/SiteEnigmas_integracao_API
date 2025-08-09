@@ -8,4 +8,12 @@ router.get('/google', authController.loginGoogle);
 router.get('/google/callback', authController.googleCallback);
 router.get('/logout', authController.logout);
 
-module.exports = router;
+router.get('/login', function(req, res, next) {
+  res.render('login');
+});
+
+router.get('/registrar', function(req, res, next) {
+  res.render('registrar');
+});
+
+module.exports = router; 
