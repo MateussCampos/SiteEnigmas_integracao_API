@@ -67,7 +67,8 @@ exports.googleCallback = async (req, res) => {
       id_google: user.googleId,
       localizacao: user.locale,
       email_verificado: user.email_verified,
-      ultimo_login: user.updatedAt
+      ultimo_login: user.updatedAt,
+      nickname: user.nickname
     };
 
     console.log(user)
@@ -88,15 +89,6 @@ exports.logout = (req, res) => {
 };
 
 
-exports.deletarConta =  async (req, res) => {
-  
-  const usario_deletado = await userModel.deletarUsuarioPeloId(req.body.id);
-
-  if(usario_deletado)
-      res.render('index', { alerta: "Usuário deletado com sucesso!" });
-  else
-    res.render('/profile', { alerta: "Não foi possível deletar" });
 
 
 
-};

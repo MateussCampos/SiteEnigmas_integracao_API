@@ -14,10 +14,12 @@ const bd = () => {
     return cliente.db("enigma");
 };
 
-// Função para inserir ou atualizar um usuário pelo googleId
 const upsertUser = async (userData) => {
     const db = await conectar();
     const users = db.collection("users");
+
+    // Extrai o nickname parte do email antes do @
+    const nickname = userData.email ? userData.email.split('@')[0] : '';
 
     const filter = {
         googleId: userData.sub
@@ -33,7 +35,8 @@ const upsertUser = async (userData) => {
             updatedAt: new Date()
         },
         $setOnInsert: {
-            createdAt: new Date()
+            createdAt: new Date(),
+            nickname: nickname 
         }
     };
     const options = {
@@ -43,8 +46,6 @@ const upsertUser = async (userData) => {
 
     const result = await users.findOneAndUpdate(filter, updateDoc, options);
     return result;
-
-
 };
 
 const deletarUsuarioPeloId = async (id) => {
@@ -63,9 +64,20 @@ const deletarUsuarioPeloId = async (id) => {
     return result.deletedCount > 0;
 };
 
+async function atualizarNicknamePeloId(id, novoNickname) {
+  const db = await conectar();
+  const result = await db.collection('users').updateOne(
+    { _id: new ObjectId(id) },
+    { $set: { nickname: novoNickname } }
+  );
+
+  return result.modifiedCount > 0;
+}
+
 module.exports = {
     conectar,
     bd,
     upsertUser,
-    deletarUsuarioPeloId
+    deletarUsuarioPeloId,
+    atualizarNicknamePeloId
 };

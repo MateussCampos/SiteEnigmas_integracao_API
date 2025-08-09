@@ -11,6 +11,7 @@ var rotasEnigma = require("./routes/rotasEnigma");
 var rotasAPI = require("./routes/rotasAPI");
 var rotasContato = require("./routes/rotasContato")
 var autenticacaoRotas = require('./routes/rotasAutenticacao');
+var userRotas = require('./routes/rotasUser');
 var { checarUsuarioAutenteicado }= require('./middlewares/auth.js');
 
 var app = express();
@@ -42,6 +43,7 @@ app.use("/enigma", checarUsuarioAutenteicado, rotasEnigma);
 app.use("/api",rotasAPI);
 app.use("/", rotasContato);
 app.use('/auth', autenticacaoRotas);
+app.use('/', userRotas);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
