@@ -24,11 +24,10 @@
         <p class="lead">Envie sua dúvida, desafio ou sugestão enigmática</p>
       </div>
 
-      <!-- Formulário -->
       <form id="contactForm" action="/contato" method="POST">
         <div class="mb-3">
           <label for="name" class="form-label">Seu Nome</label>
-          <input type="text" name="name" class="form-control bg-dark text-light border-secondary" id="name" required />
+          <input type="text" name="nome" class="form-control bg-dark text-light border-secondary" id="nome" required />
         </div>
 
         <div class="mb-3">
@@ -39,7 +38,7 @@
 
         <div class="mb-3">
           <label for="subject" class="form-label">Assunto</label>
-          <select name="subject" class="form-select bg-dark text-light border-secondary" id="subject" required>
+          <select name="tema" class="form-select bg-dark text-light border-secondary" id="tema" required>
             <option value="" selected disabled>Selecione...</option>
             <option value="duvida">Dúvida sobre enigmas</option>
             <option value="sugestao">Sugestão de novo enigma</option>
@@ -51,12 +50,12 @@
 
         <div class="mb-3">
           <label for="message" class="form-label">Mensagem</label>
-          <textarea name="message" class="form-control bg-dark text-light border-secondary" id="message" rows="5"
+          <textarea name="mensagem" class="form-control bg-dark text-light border-secondary" id="mensagem" rows="5"
             required></textarea>
         </div>
 
         <div class="mb-3 form-check">
-          <input type="checkbox" name="newsletter" class="form-check-input" id="newsletter" />
+          <input type="checkbox" name="info" class="form-check-input" id="info" />
           <label class="form-check-label" for="newsletter">Desejo receber enigmas e novidades por e-mail</label>
         </div>
 
@@ -64,7 +63,6 @@
           <button type="submit" class="btn btn-outline-light btn-lg">Enviar Mensagem</button>
         </div>
       </form>
-
 
       <div id="formSuccess" class="alert alert-success mt-4 d-none" role="alert">
         Sua mensagem foi enviada com sucesso! Decifraremos em até 48 horas.
@@ -114,5 +112,33 @@
     </tbody>
   </table>
 </div>
+
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contactModalLabel">Mensagem Enviada</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        Sua mensagem foi enviada com sucesso! Decifraremos em até 48 horas.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var modal = new bootstrap.Modal(document.getElementById("contactModal"));
+    modal.show();
+    this.reset();
+  });
+</script>
 
 </body>
