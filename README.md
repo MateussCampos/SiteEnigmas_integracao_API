@@ -12,6 +12,7 @@ GOOGLE_CLIENT_SECRET=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
 SESSION_SECRET=umsegredoseguro
 
 
-EMAIL_SERVER = 'seuemail@gmail.com'
-EMAIL_SENHA = 'suasenha'
+
+EMAIL_SERVER = 'daniellaberbertif@gmail.com'
+EMAIL_SENHA = 'hsja geip eajo sffo'
 
