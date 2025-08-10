@@ -14,6 +14,7 @@ exports.mainPage = (req, res) => {
     enigmas.inserirEnigmas();
     popularBanco = true;
   }
+  
 
   res.render("index");
 };
