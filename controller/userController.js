@@ -36,6 +36,7 @@ exports.alterarNickname = async (req, res) => {
     }
 
     // Recarrega a página com TODOS os dados do usuário + mensagem de sucesso
+    // Cpmpactei usando operador ternario para ficar mais chique ;)
     const contexto = {
       title: "Perfil",
       id: req.session.user.id,
@@ -81,7 +82,7 @@ exports.deletarConta =  async (req, res) => {
   if(usario_deletado)
       res.render('index', { alerta: "Usuário deletado com sucesso!" });
   else
-    res.render('/profile', { alerta: "Não foi possível deletar" });
+    res.render('profile', { alerta: "Não foi possível deletar" });
 
 
 
