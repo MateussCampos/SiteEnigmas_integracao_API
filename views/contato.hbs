@@ -10,6 +10,7 @@
     <li><a href="/auth/registrar"><i class="bi bi-person-plus"></i> Registrar</a></li>
     <li><a href="/enigma/facil/2"><i class="bi bi-question-circle"></i> Enigmas</a></li>
     <li><a href="/contato"><i class="bi bi-envelope"></i> Contato</a></li>
+    <li><a href="/profile"><i class="bi bi-person-circle"></i> Seu Perfil</a></li>
   </ul>
 </nav>
 
@@ -24,7 +25,7 @@
         <p class="lead">Envie sua dúvida, desafio ou sugestão enigmática</p>
       </div>
 
-      <form id="contactForm" action="/enviar-email" method="POST">
+      <form id="contactForm" action="/contato" method="POST">
         <div class="mb-3">
           <label for="name" class="form-label">Seu Nome</label>
           <input type="text" name="nome" class="form-control bg-dark text-light border-secondary" id="nome" required />
@@ -130,15 +131,18 @@
   </div>
 </div>
 
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-{{!-- <script>
-  document.getElementById("contactForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    var modal = new bootstrap.Modal(document.getElementById("contactModal"));
-    modal.show();
-    this.reset();
-  });
-</script> --}}
+{{#if mensagemSucesso}}
+<script>
+
+  var modal = new bootstrap.Modal(document.getElementById("contactModal"));
+  modal.show();
+
+</script>
+{{/if}}
+
+
 
 </body>

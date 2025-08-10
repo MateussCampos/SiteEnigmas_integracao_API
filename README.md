@@ -13,5 +13,5 @@ SESSION_SECRET=umsegredoseguro
 
 
 EMAIL_SERVER = 'seuemail@gmail.com'
-EMAIL_SENHA = 'suasenha'  }
+EMAIL_SENHA = 'suasenha'
 
