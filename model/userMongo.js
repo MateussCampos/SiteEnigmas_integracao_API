@@ -30,7 +30,6 @@ const upsertUser = async (userData) => {
             email: userData.email,
             name: userData.name,
             picture: userData.picture,
-            locale: userData.locale,
             email_verified: userData.email_verified,
             updatedAt: new Date()
         },
@@ -44,6 +43,9 @@ const upsertUser = async (userData) => {
         returnDocument: "after"
     };
 
+    // A função findOneAndUpdate é uma função do banco de dados mongodb, serve para procurar um dado no banco de dados por meio da variavel filter, se é
+    // encontrado esse dado os dadso do banco são atualizado, caso não exista a variavel optinos define que pode criar um novo usuário com os dados buscados
+
     const result = await users.findOneAndUpdate(filter, updateDoc, options);
     return result;
 };
@@ -54,11 +56,8 @@ const deletarUsuarioPeloId = async (id) => {
 
     // Converte para ObjectId (se possível)
     let objectId;
-    try {
         objectId = new ObjectId(id);
-    } catch (error) {
-        throw new Error("ID inválido");
-    }
+
 
     const result = await users.deleteOne({ _id: objectId });
     return result.deletedCount > 0;

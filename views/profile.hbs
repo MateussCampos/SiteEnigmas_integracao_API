@@ -58,10 +58,7 @@
             <span>Email verificado:</span>
             <span class="text-muted">{{email_verificado}}</span>
           </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Localização:</span>
-            <span class="text-muted">{{localizacao}}</span>
-          </li>
+
         </ul>
       </div>
 
@@ -87,7 +84,7 @@
 
       <!-- Botão Deletar Conta -->
       <div class="text-center">
-        <form method="post" action="/auth/deletar/conta">
+        <form method="post" action="/deletar/conta">
           <input type="hidden" name="id" value="{{id}}" />
           <button type="submit" class="btn btn-danger">
             <i class="bi bi-trash me-1"></i>Deletar conta
@@ -97,10 +94,6 @@
       <a href="/" class="btn btn-danger">
         <i class="fas fa-arrow-left me-2"></i>
         Voltar
-      </a>
-      <a href="/" class="btn btn-success">
-        <i class="fas fa-arrow-left me-2"></i>
-        Prosseguir
       </a>
 
     </div>

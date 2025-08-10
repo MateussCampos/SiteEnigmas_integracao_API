@@ -24,7 +24,10 @@ exports.mostrarPerfil = async function (req, res) {
 }
 
 exports.alterarNickname = async (req, res) => {
-  const { id, nickname } = req.body;
+  const {
+    id,
+    nickname
+  } = req.body;
 
   // Atualiza o nickname no banco
   const usuarioAtualizado = await userModel.atualizarNicknamePeloId(id, nickname);
@@ -46,9 +49,9 @@ exports.alterarNickname = async (req, res) => {
       id_google: req.session.user.id_google,
       email_verificado: req.session.user.email_verified ? "Sim" : "Não",
       localizacao: req.session.user.locale,
-      ultimo_login: req.session.user.ultimo_login 
-        ? diferencaEmMinutos(req.session.user.ultimo_login) 
-        : "Data não disponível",
+      ultimo_login: req.session.user.ultimo_login ?
+        diferencaEmMinutos(req.session.user.ultimo_login) :
+        "Data não disponível",
       nickname: nickname, // Novo nickname
       alerta: "Nickname alterado com sucesso!" // Mensagem de sucesso
     };
@@ -65,9 +68,9 @@ exports.alterarNickname = async (req, res) => {
       id_google: req.session.user.id_google,
       email_verificado: req.session.user.email_verified ? "Sim" : "Não",
       localizacao: req.session.user.locale,
-      ultimo_login: req.session.user.ultimo_login 
-        ? diferencaEmMinutos(req.session.user.ultimo_login) 
-        : "Data não disponível",
+      ultimo_login: req.session.user.ultimo_login ?
+        diferencaEmMinutos(req.session.user.ultimo_login) :
+        "Data não disponível",
       nickname: req.session.user.nickname, // Mantém o nickname antigo
       alerta: "Não foi possível alterar o nickname." // Mensagem de erro
     };
@@ -75,14 +78,21 @@ exports.alterarNickname = async (req, res) => {
   }
 };
 
-exports.deletarConta =  async (req, res) => {
-  
+exports.deletarConta = async (req, res) => {
+
   const usario_deletado = await userModel.deletarUsuarioPeloId(req.body.id);
 
-  if(usario_deletado)
-      res.render('index', { alerta: "Usuário deletado com sucesso!" });
-  else
-    res.render('profile', { alerta: "Não foi possível deletar" });
+  if (usario_deletado) {
+    req.session.destroy(() => {
+      res.render('index', {
+        alerta: "Usuário deletado com sucesso!"
+      });
+    });
+
+  } else
+    res.render('profile', {
+      alerta: "Não foi possível deletar"
+    });
 
 
 

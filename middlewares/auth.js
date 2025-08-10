@@ -4,7 +4,7 @@ function checarUsuarioAutenteicado(req, res, next) {
     next();
   } else {
     // não autenticado, redireciona para login
-    res.redirect('/auth/google'); 
+    res.redirect('/login'); 
   }
 }
 

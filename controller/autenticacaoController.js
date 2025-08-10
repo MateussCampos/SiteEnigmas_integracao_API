@@ -14,7 +14,7 @@ exports.mainPage = (req, res) => {
     enigmas.inserirEnigmas();
     popularBanco = true;
   }
-  
+
 
   res.render("index");
 };
@@ -47,8 +47,7 @@ exports.googleCallback = async (req, res) => {
   });
 
   const userInfo = await axios.get(
-    `https://www.googleapis.com/oauth2/v3/userinfo`,
-    {
+    `https://www.googleapis.com/oauth2/v3/userinfo`, {
       headers: {
         Authorization: `Bearer ${tokenRes.data.access_token}`,
       },

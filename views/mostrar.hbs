@@ -1,11 +1,16 @@
-<h1>Enigmas</h1>
+<h1 class="mb-4 text-center">Enigmas</h1>
 
-{{#each enigmas}}
-  <div style="margin-bottom: 20px;">
-    <p><strong>Desafio:</strong> {{enigma}}</p>
-    <button onclick="this.nextElementSibling.classList.toggle('hidden')">Ver resposta</button>
-    <p class="hidden"><strong>Resposta:</strong> {{resposta}}</p>
-  </div>
-{{/each}}
-
-
+<div class="container">
+  {{#each enigmas}}
+    <div class="card bg-dark text-light border-light shadow-sm mb-3">
+      <div class="card-body">
+        <details>
+          <summary class="fw-bold text-primary">
+            <i class="bi bi-question-circle"></i> Desafio: {{enigma}}
+          </summary>
+          <p class="mt-2"><strong>Resposta:</strong> {{resposta}}</p>
+        </details>
+      </div>
+    </div>
+  {{/each}}
+</div>
