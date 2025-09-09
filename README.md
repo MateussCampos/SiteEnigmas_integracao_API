@@ -1,5 +1,5 @@
-# trabalho-rossini-08-2025
-Para instalar o projeto corretamente é necessário informar os seguintes comandos!
+# Desenvolvimento do site de enigmas
+# Para instalar o projeto corretamente é necessário os seguintes passos!
 
 npm install
 npm install mongodb
@@ -14,5 +14,5 @@ SESSION_SECRET=umsegredoseguro
 
 
 EMAIL_SERVER = 'daniellaberbertif@gmail.com'
-EMAIL_SENHA = 'hsja geip eajo sffo'
+EMAIL_SENHA = 'qualquersenha'
 
